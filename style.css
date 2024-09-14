@@ -1,0 +1,62 @@
+body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(22, 22, 22);
+    overflow: hidden;
+}
+#root{
+    align-self: center;
+    position: relative;
+    width: 1300px;
+    height: 600px;
+    border: solid 2px white;
+}
+.net{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 2px;
+    height: 90%;
+    background-color: white;
+}
+#ball{
+    position: absolute;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    transition: linear;
+}
+#pl1{
+    position: absolute;
+    top: 270px;
+    left: 20px;
+    width: 7px;
+    height: 60px;
+    background-color: white;
+    transition: linear;
+}
+#pl2{
+    position: absolute;
+    top: 270px;
+    right: 20px;
+    width: 7px;
+    height: 60px;
+    background-color: white;
+    transition: linear;
+}
+#score{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    padding: 4px;
+    position: absolute;
+    top: 20px;
+    left: 48%;
+    
+}
