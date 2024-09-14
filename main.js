@@ -53,8 +53,8 @@ document.addEventListener('keydown', function(event) {
     } else if((event.key === 'ArrowUp')){
         if(player2Y > 10){
             player2Y -= 20;
-            moveDownPlayer2 = true;
-            moveUpPlayer2 = false;
+            moveDownPlayer2 = false;
+            moveUpPlayer2 = true;
         }
     }
     
