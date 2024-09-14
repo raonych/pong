@@ -13,31 +13,32 @@ var player1Score = 0;
 var player2Score = 0;
 document.getElementById("score1").innerHTML = player2Score;
 document.getElementById("score2").innerHTML = player1Score;
+
 function  updateDisplay(){
- document.getElementById("pl1").style.top = player1Y+"px";
- document.getElementById("pl2").style.top = player2Y+"px";
- document.getElementById("ball").style.left = ballX+"px";
- document.getElementById("ball").style.top = ballY+"px";
- colision();
- winnerReset();
- if (pause == false){
-    moveBall();
- }
+    document.getElementById("pl1").style.top = player1Y+"px";
+    document.getElementById("pl2").style.top = player2Y+"px";
+    document.getElementById("ball").style.left = ballX+"px";
+    document.getElementById("ball").style.top = ballY+"px";
+    colision();
+    winnerReset();
+    if (pause == false){
+        moveBall();
+    }
  
 };
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 's'){
         if(player1Y < 520){
-        player1Y += 20;
-        moveDownPlayer1 = true;
-        moveUpPlayer1 = false;
+            player1Y += 20;
+            moveDownPlayer1 = true;
+            moveUpPlayer1 = false;
         }
     } else if((event.key === 'w')){
         if(player1Y > 10){
-        player1Y -= 20;
-        moveUpPlayer1 = true;
-        moveDownPlayer1 = false;
+            player1Y -= 20;
+            moveUpPlayer1 = true;
+            moveDownPlayer1 = false;
         }
     }
     
@@ -45,15 +46,15 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowDown'){
         if(player2Y < 520){
-        player2Y += 20;
-        moveDownPlayer2 = true;
-        moveUpPlayer2 = false;
+            player2Y += 20;
+            moveDownPlayer2 = true;
+            moveUpPlayer2 = false;
         }
     } else if((event.key === 'ArrowUp')){
         if(player2Y > 10){
-        player2Y -= 20;
-        moveDownPlayer2 = true;
-        moveUpPlayer2 = false;
+            player2Y -= 20;
+            moveDownPlayer2 = true;
+            moveUpPlayer2 = false;
         }
     }
     
@@ -63,8 +64,8 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && ballX == 643){
         pause = false;
         hit = Math.random() < 0.5;
-
-}});
+    }
+});
 
 function moveBall(){
     if(hit == false){
@@ -74,15 +75,12 @@ function moveBall(){
         setInterval(ballX += 10, 4000);
 }
 
-if(colisionType == true){
-    setInterval(ballY -= 5, 4000);   
-}
-if(colisionType == false){
-    setInterval(ballY += 5, 4000); 
-}
-console.log("ballX", ballX);
-console.log("ballY", ballY);
-console.log("player1Y", player1Y);
+    if(colisionType == true){
+        setInterval(ballY -= 5, 4000);   
+    }
+    if(colisionType == false){
+        setInterval(ballY += 5, 4000); 
+    }
 
 }
 function pauseGame(){
@@ -105,8 +103,8 @@ function colision(){
     }
     // Colisão da bola com o player 1
    if(ballX < 35 && pbDiff1 == true){ 
-    hit = true;
-    pbDiff1 = false;
+        hit = true;
+        pbDiff1 = false;
     if(moveDownPlayer1 == true){
         colisionType = false;
     }
@@ -116,8 +114,8 @@ function colision(){
    }
    //Colisão da bola com o player 2 
    if(ballX > 1260 && pbDiff2 == true){
-    hit = false;
-    pbDiff2 = false;
+        hit = false;
+        pbDiff2 = false;
     if(moveDownPlayer2 == true){
         colisionType = false;
     }
@@ -133,7 +131,6 @@ function colision(){
     colisionType = true;
    }
 
-
 }
 
 function winnerReset() {
@@ -146,11 +143,7 @@ function winnerReset() {
         pauseGame();
         player1Score++; 
         document.getElementById("score2").innerHTML = player1Score;
-    }
-
-    
-    
+    }  
 }
 
 setInterval(updateDisplay, 20);
-console.log(pause);
