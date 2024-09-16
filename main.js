@@ -30,13 +30,13 @@ function  updateDisplay(){
 document.addEventListener('keydown', function(event) {
     if (event.key === 's'){
         if(player1Y < 520){
-            player1Y += 20;
+            player1Y += 30;
             moveDownPlayer1 = true;
             moveUpPlayer1 = false;
         }
     } else if((event.key === 'w')){
         if(player1Y > 10){
-            player1Y -= 20;
+            player1Y -= 30;
             moveUpPlayer1 = true;
             moveDownPlayer1 = false;
         }
@@ -46,13 +46,13 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowDown'){
         if(player2Y < 520){
-            player2Y += 20;
+            player2Y += 30;
             moveDownPlayer2 = true;
             moveUpPlayer2 = false;
         }
     } else if((event.key === 'ArrowUp')){
         if(player2Y > 10){
-            player2Y -= 20;
+            player2Y -= 30;
             moveDownPlayer2 = false;
             moveUpPlayer2 = true;
         }
@@ -69,10 +69,10 @@ document.addEventListener('keydown', function(event) {
 
 function moveBall(){
     if(hit == false){
-        setInterval(ballX -= 10, 4000);
+        setInterval(ballX -= 10, 500);
     }
     else if(hit == true){
-        setInterval(ballX += 10, 4000);
+        setInterval(ballX += 10, 500);
 }
 
     if(colisionType == true){
@@ -90,6 +90,10 @@ function pauseGame(){
     player1Y = 270;
     player2Y = 270;
     colisionType = null;
+    moveDownPlayer1 = null;
+    moveUpPlayer1 = null;
+    moveDownPlayer2 = null;
+    moveUpPlayer2 = null;
 }
     
 function colision(){
@@ -137,12 +141,12 @@ function winnerReset() {
     if(ballX < -60){
         pauseGame();
         player2Score++;
-        document.getElementById("score1").innerHTML = player2Score;
+        document.getElementById("score2").innerHTML = player2Score;
     }
     if(ballX > 1300){
         pauseGame();
         player1Score++; 
-        document.getElementById("score2").innerHTML = player1Score;
+        document.getElementById("score1").innerHTML = player1Score;
     }  
 }
 
